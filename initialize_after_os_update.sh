@@ -23,4 +23,7 @@ sudo pacman -Syu --noconfirm
 # Install custom packages
 ./install_pacman_packages.sh
 
+# enableSteamOS Readonly mode
+sudo steamos-readonly enable
+
 cd - >/dev/null
