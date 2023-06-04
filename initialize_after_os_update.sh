@@ -20,8 +20,17 @@ sudo pacman-key --refresh-keys
 # Upgrade all packages
 sudo pacman -Syu --noconfirm
 
+# Purge old config file
+sudo rm -f /etc/vpnc/vpnc-script
+sudo rm -f /etc/skel/.screenrc
+
+# Janky ass temp fix for outdated arch keyring
+sudo pacman-key --refresh-keys 6C7F7F22E0152A6FD5728592DAD6F3056C897266
+
 # Install custom packages
 ./install_pacman_packages.sh
+# Set up sudoers
+sudo cp ./zz10_deckpad /etc/sudoers.d/zz10_deckpad
 
 # enableSteamOS Readonly mode
 sudo steamos-readonly enable
